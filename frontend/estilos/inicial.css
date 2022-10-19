@@ -1,0 +1,262 @@
+@charset "UFT-8";
+@import url('global.css');
+
+.container{
+  background-image: url(../imagens/capaaaa2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+body{
+  margin: 0;
+}
+.content{
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
+  background: rgb(255, 255, 255);
+  min-width: 1100px;
+  max-width: 1100px;
+  height: 100vh;
+}
+  
+/*                   CAIXA DE PUBLICAÇÃO                            */
+
+.publicacao {
+  position: relative;
+  top: 100px;
+  left: 5%;
+  width: 1000px;
+  height: 250px;
+}
+
+.esq {
+  width: 50%;
+  float: left;
+}
+
+.dir {
+  margin-left: 50%;
+}
+
+.esq > button, .dir > button {
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+  background-color: white;
+  color: var(--cor5);
+  border: white;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.esq > button:hover, .dir > button:hover{
+background-color: var(--cor5);
+color: white;
+box-shadow: rgba(12, 12, 15, 0.072) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.048) 0px 18px 36px -18px inset, rgba(0, 0, 0, 0.053) 0px -23px 25px 0px inset,rgba(0, 0, 0, 0.053) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.044) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.publicacao > .post > textarea, .publicacao > .resenha > textarea{
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+/*                    FORMULÁRIOS                     */
+
+
+/*              POST                */
+
+.post_res{
+  background-color: rgba(128, 128, 128, 0.085);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.096) 0px 8px 24px;
+
+}
+  
+.nomejogo{
+  padding: 17px;
+  
+  padding-left: 50;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.inputjogo{
+  width: 50%;
+  padding: 3px 3px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid var(--cor5);
+  background-color: transparent;
+  outline: none;
+  min-width: 18px;
+  font-size: 16px; 
+}
+.textarea{
+  padding-bottom: 6px;
+  padding-left: 5%;
+}
+
+.textarea > textarea {
+  resize: none;
+  width: 95%;
+  background-color: rgba(128, 128, 128, 0.085);
+  border: none;
+ 
+}
+.areapost{
+  padding: 12px 20px;
+  background-color: white;
+  width: 50%;
+  height: 36%;
+  outline: none;
+  border-radius: 10px;
+}
+.areares{
+  padding: 12px 20px;
+  background-color: white;
+  width: 50%;
+  height: 55%;
+  outline: none;
+  border-radius: 10px;
+}
+
+/*botão*/  
+.publicar, .fechar{
+  padding: 10px;
+  right: 2%;
+  background-color: var(--cor5);
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+  transition-duration: .5s;
+  text-align: center;
+  position: relative;
+  float: right;
+  margin: 5px;
+  margin-top: 0; 
+} 
+.publicar:hover, .fechar:hover{
+color: white;
+box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.124);   
+
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  margin: 0;
+}
+
+
+/*                RESENHA                  */
+
+
+
+li:not(:last-child) {
+  margin-right: 60px;
+} 
+
+/*resenha*/
+.botaoresenha{
+  padding: 10px;
+  background-color: white;
+  color: var(--cor5);
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  transition-duration: .5s;
+  text-align: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+}
+input[type="radio"]:checked + .botaoresenha{
+  color: white;
+  background-color: var(--cor5);
+  font-weight: bolder;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.124);   
+}
+
+/*estrelas*/
+.estrelas input[type=radio] {
+  display: none;
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+input[type="radio"] {
+  appearance: none;
+}
+
+.feed {
+  position: relative;
+  top: 150px;
+  width: 700px;
+  height: 250px;
+  margin: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+}
+
+.cu {
+  display: flex;
+
+}
+
+.cu > img {
+  width: 55px;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.cu-info{
+  margin-left: 5px;
+  margin-top: 10px;
+  line-break: strict;
+}
+
+.cu-coment {
+  width: 320px;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.cu-imagem img {
+  position: absolute;
+  left:48%;
+  width: 350px;
+  bottom: 40px;
+  border-radius: 10px;
+}
+
+.cu-rtida {
+  position: relative;
+  top: 60%;
+  left: 20px;
+}
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
