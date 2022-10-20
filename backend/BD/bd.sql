@@ -46,9 +46,6 @@ insert into usuarios values (null, 'Aloísio', 'aloisinho', 'aloisio@gmail.com')
 
 insert into seguidores values (1, 3), (1, 2);
 
-insert into posts values (null, 1, 'Overcooked', 'nossa meu, muito merda!!!', 'Abandonei', 'https://media.rawg.io/media/screenshots/32d/32d028cd8b8cea14b39244ae1ffdee62.jpg');
+insert into posts values (null, 1, 'Overcooked', 'nossa meu, muito merda!!!', 'Abandonei', 'https://media.rawg.io/media/games/270/270b412b66688081497b3d70c100b208.jpg');
 
-insert into resenhas values (null, 1, 'Overcooked', 1, 'nossa meu, muitooo merdada/111!!!', 'https://media.rawg.io/media/screenshots/32d/32d028cd8b8cea14b39244ae1ffdee62.jpg');
-
-select * from posts, resenhas;
-    
+insert into resenhas values (null, 1, 'Overcooked', 1, 'nossa meu, muitooo merdada/111!!!', 'https://media.rawg.io/media/games/270/270b412b66688081497b3d70c100b208.jpg');

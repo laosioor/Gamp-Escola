@@ -17,7 +17,7 @@ body{
   background: rgb(255, 255, 255);
   min-width: 1100px;
   max-width: 1100px;
-  height: 100vh;
+  height: 200vh;
 }
   
 /*                   CAIXA DE PUBLICAÇÃO                            */
@@ -207,45 +207,58 @@ input[type="radio"] {
   width: 700px;
   height: 250px;
   margin: auto;
+  margin-bottom: 5vh;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
 }
 
-.cu {
+.post-publi {
   display: flex;
-
 }
 
-.cu > img {
+.post-publi > img {
   width: 55px;
   border: 1px solid black;
   border-radius: 100%;
   margin-left: 15px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
-.cu-info{
+.post-info{
   margin-left: 5px;
   margin-top: 10px;
   line-break: strict;
 }
 
-.cu-coment {
+.post-info a {
+  text-decoration: none;
+  color: black;
+}
+
+.post-coment {
   width: 320px;
   position: relative;
   margin-top: 10px;
   margin-left: 20px;
+ 
 }
 
-.cu-imagem img {
+.post-coment p {
+  margin-right: 5px;
+}
+
+.post-imagem img {
+  object-fit: fill;
   position: absolute;
   left:48%;
-  width: 350px;
-  bottom: 40px;
+  width: 50%;
+  height: 80%;
+  bottom: 30px;
   border-radius: 10px;
 }
 
-.cu-rtida {
+.post-like {
   position: relative;
   top: 60%;
   left: 20px;

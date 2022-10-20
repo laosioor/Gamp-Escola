@@ -115,48 +115,32 @@
 							<button onclick="abrirRes()">RESENHA</button>
 						</div>
 					</div>
+
+					<% for (let i = 0; i < Object.keys(posts).length; i++) { %>
 					<div class="feed">
-						<div class="cu">
-						<img src="../imagens/controle-de-video-game.png">
-						<div class="cu-info">
-						<h3>Lívia</h3>
-						<h5>Overcooked ● Abandonei</h5>
-						
+						<div class="post-publi">
+						<img src="../imagens/controle-de-video-game.png" onclick="location.href = '/perfil/<%= posts[i].usuario %>';">
+						<div class="post-info">
+						<h3><a href="/perfil/<%= posts[i].usuario %>"><%= posts[i].usuario %></a></h3>
+						<h5><%= posts[i].nomeJogo %> ● <%= posts[i].estado%></h5>
 						</div>
-						
 						</div>
-						<div class="cu-coment">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, corrupti aliquam ipsa consequatur blanditiis accusantium at, qui commodi unde quam, error maxime. Dolorum nulla sint earum impedit, error quis molestiae? Dolorum nulla sint earum impedit, err</p>
+						<div class="post-coment">
+						<p><%= posts[i].comentario %></p>
 						</div>
-						<div class="cu-imagem">
-							<img src="../imagens/capaaaa2.png">
+						<div class="post-imagem">
+							<img src="<%= posts[i].imgJogo %>">
 						</div>
-						<div class="cu-rtida">
-							<span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" ></i> </span>
+						<div class="post-like">
+							<span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" onclick="clicaCoracao(this)" ></i> </span>
 							</div>
 					</div>
-			</div>
+					<% } %>
 		</div>
 
-		
-		
-	
 	<script src="../javascript/pesquisaUsuario.js"></script>
 	<script src="../javascript/pesquisaJogo.js"></script>
 	<script src="../javascript/abrePostRes.js"></script>
 	<script src="../javascript/selecionaJogo.js"></script>
-	<script>
-		var heart = document.getElementById("coracao");
-		heart.addEventListener("click", clicaCoracao());
-
-		function clicaCoracao() {
-			if (heart.classList.contains("liked")) {
-				heart.classList.toggle("fa fa-heart-o");
-				heart.classList.remove("liked");
-			} else if (!heart.classList.contains("liked")) {
-				heart.classList.toggle("fa fa-heart");
-				heart.classList.add("liked");
-			}
-		}
-	</script>
+	<script src="../javascript/clicaCoracao.js"></script>
 </body>
