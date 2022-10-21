@@ -65,6 +65,8 @@ router.post('/criarResenha', auth.verifyJWT, async function(req, res) {
     let imgJogo = dados.imgJogo;
     let comentario = dados.comentResenha;
 
+    if (nota == '') { nota = 0 }
+
     await config.dbInsert(`insert into resenhas values (null, ${req.userID}, "${nomeJogo}", ${nota}, "${comentario}", "${imgJogo}")`);
 
     res.redirect('/home');

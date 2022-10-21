@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="../estilos/inicial.css"> 
 <link rel="stylesheet" href="../estilos/global.css">
 <link rel="stylesheet" href="../estilos/nav.css">
+<link rel="stylesheet" href="../estilos/estrelas.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -69,10 +71,10 @@
 										<li><input type="radio" id="e4" name="estado" value="Abandonei"><label for="e4" class="botaoresenha">Abandonei</label></li>
 									</ul>
 								</div>
-									<div class="textarea"><textarea name="comentPost" class="areapost" cols="30" rows="10" required></textarea></div>
+									<div class="textarea"><textarea name="comentPost" class="areapost" cols="30" rows="10" required onkeyup="selecionaJogo(document.getElementById('resultadosJogoE'))"></textarea></div>
 									<input type="submit" class="publicar" value="Publicar">
 							</form>
-									<button onclick="abrirBotoes()" class="fechar">Fechar</button>		
+									<button type="reset" onclick="abrirBotoes()" class="fechar">Fechar</button>		
 								</div>
 							</div>
 						<div class="resenha" id="resDiv" style="display: none;">
@@ -102,10 +104,10 @@
 										<input type="radio" id="cm_star-5"  name="notaJogo" value="5"/>
 									</form>	
 									</div>
-								<div class="textarea"><textarea name="comentResenha" class="areares" cols="50" rows="10"></textarea></div>
+								<div class="textarea"><textarea name="comentResenha" class="areares" cols="50" rows="10" required onkeyup="selecionaJogo(document.getElementById('resultadosJogoD'))"></textarea></div>
 								<input type="submit" class="publicar" value="Publicar">
 							</form>
-									<button type="button" onclick="abrirBotoes()" class="fechar">Fechar</button>		
+									<button type="reset" onclick="abrirBotoes()" class="fechar">Fechar</button>		
 								</div>
 							</div>
 						<div class="esq" id="esqDiv">
@@ -116,26 +118,65 @@
 						</div>
 					</div>
 
-					<% for (let i = 0; i < Object.keys(posts).length; i++) { %>
+					<% for (let j = 0; j < Object.keys(publi.resenhas).length; j++) { %>
+					<% usuarioRes = publi.resenhas[j].usuario; %>
+					<% nomeJogoRes = publi.resenhas[j].nomeJogo; %>
+					<% notaRes = publi.resenhas[j].nota; %>
+					<% comentarioRes = publi.resenhas[j].comentario; %>
+					<% imgJogoRes = publi.resenhas[j].imgJogo; %>
 					<div class="feed">
 						<div class="post-publi">
-						<img src="../imagens/controle-de-video-game.png" onclick="location.href = '/perfil/<%= posts[i].usuario %>';">
+						<img src="../imagens/controle-de-video-game.png" onclick="location.href = '/perfil/<%= usuarioRes %>'">
 						<div class="post-info">
-						<h3><a href="/perfil/<%= posts[i].usuario %>"><%= posts[i].usuario %></a></h3>
-						<h5><%= posts[i].nomeJogo %> ● <%= posts[i].estado%></h5>
+						<h3><a href="/perfil/<%= usuarioRes %>"><%= usuarioRes %></a></h3>
+						<h5><%= nomeJogoRes %> ● <label class="rating-label"><input
+							class="rating"
+							max="5"
+							style="--fill:var(--cor5);--value:<%= notaRes %>"
+							type="range"
+							value="<%= notaRes %>"
+							readonly></label></h5>
 						</div>
 						</div>
 						<div class="post-coment">
-						<p><%= posts[i].comentario %></p>
+						<p><%= comentarioRes %></p>
 						</div>
 						<div class="post-imagem">
-							<img src="<%= posts[i].imgJogo %>">
+							<img src="<%= imgJogoRes %>">
 						</div>
 						<div class="post-like">
 							<span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" onclick="clicaCoracao(this)" ></i> </span>
 							</div>
 					</div>
 					<% } %>
+
+					<% for (let k = 0; k < Object.keys(publi.posts).length; k++) { %>
+					<% usuarioPost = publi.posts[k].usuario; %>
+					<% nomeJogoPost = publi.posts[k].nomeJogo; %>
+					<% estadoPost = publi.posts[k].estado; %>
+					<% comentarioPost = publi.posts[k].comentario; %>
+					<% imgJogoPost = publi.posts[k].imgJogo; %>
+					<div class="feed">
+						<div class="post-publi">
+						<img src="../imagens/controle-de-video-game.png" onclick="location.href = '/perfil/<%= usuarioPost %>';">
+						<div class="post-info">
+						<h3><a href="/perfil/<%= usuarioPost %>"><%= usuarioPost %></a></h3>
+						<h5><%= nomeJogoPost %> ● <%= estadoPost %></h5>
+						</div>
+						</div>
+						<div class="post-coment">
+						<p><%= comentarioPost %></p>
+						</div>
+						<div class="post-imagem">
+							<img src="<%= imgJogoPost %>">
+						</div>
+						<div class="post-like">
+							<span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" onclick="clicaCoracao(this)" ></i> </span>
+							</div>
+					</div>
+					<% } %>
+
+						
 		</div>
 
 	<script src="../javascript/pesquisaUsuario.js"></script>

@@ -8,7 +8,6 @@ const perfil = require('./routes/perfil');
 const comunidades = require('./routes/comunidades');
 const cookieParser = require('cookie-parser');
 
-
 app.use(express.static('../frontend'));
 app.use(express.json({limit: 10000}));
 app.use(express.urlencoded({

@@ -2,6 +2,8 @@ const router = require('./router');
 const auth = require("../middlewares/auth");
 const config = require('../modules/config');
 const posts = require('../modules/posts');
+const resenhas = require('../modules/resenhas');
+const publi = require('../modules/publi');
 
 module.exports = ( function() {
 	router.get('/home', auth.verifyJWT, async function(req, res) {
@@ -13,8 +15,12 @@ module.exports = ( function() {
 
 			return router;
 		}
-		listaPosts = await posts.pegaPosts();
-		res.render('inicial', {usuario:usuario, posts:listaPosts});
+		listaPosts = (await posts.pegaPosts());
+		listaResenhas = (await resenhas.pegaResenhas());
+
+		listaPubli = {'resenhas':listaResenhas, 'posts':listaPosts}
+	
+		res.render('inicial', {usuario:usuario, publi:listaPubli});
 	});
 
 	
